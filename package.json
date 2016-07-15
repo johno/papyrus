@@ -1,0 +1,22 @@
+{
+  "name": "papyrus",
+  "description": "A minimalist browser built for readability",
+  "author": "John Otander",
+  "version": "0.1.0",
+  "main": "index.js",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "start": "electron index.js",
+    "build": "electron-packager . Papyrus --platform=darwin --arch=x64 --version=0.36.11 --prune"
+  },
+  "repository": "johnotander/papyrus",
+  "keywords": [],
+  "license": "MIT",
+  "dependencies": {},
+  "devDependencies": {
+    "electron-packager": "^7.3.0",
+    "electron-prebuilt": "^1.2.7"
+  }
+}
