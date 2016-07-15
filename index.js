@@ -1,4 +1,7 @@
+const path = require('path')
 const electron = require('electron')
+const isPresent = require('is-present')
+
 const css = require('./css')
 const stripCss = require('./strip-css')
 const windows = []
@@ -16,10 +19,12 @@ electron.app.on('ready', () => {
     titleBarStyle: 'hidden-inset'
   })
 
-  win.loadURL('http://blog.algorithmia.com/2016/07/cloud-hosted-deep-learning-models/')
+  const defUrl = path.join('file://', __dirname, 'index.html')
+  win.loadURL(defUrl)
 
-
-  win.webContents.executeJavaScript(stripCss(style))
+  if (isPresent(win.webContents.getURL())) {
+    win.webContents.executeJavaScript(stripCss(style))
+  }
   
   win.on('closed', () => {
     const i = windows.indexOf(win)
