@@ -22,9 +22,7 @@ electron.app.on('ready', () => {
   const defUrl = path.join('file://', __dirname, 'index.html')
   win.loadURL(defUrl)
 
-  if (isPresent(win.webContents.getURL())) {
-    win.webContents.executeJavaScript(stripCss(style))
-  }
+  win.webContents.executeJavaScript(stripCss(style))
   
   win.on('closed', () => {
     const i = windows.indexOf(win)
