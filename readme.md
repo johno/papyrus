@@ -4,6 +4,8 @@ __Work in progress__
 
 A minimalist browser built for readability.
 
+![unspecified-1](https://cloud.githubusercontent.com/assets/1424573/16890276/4f6acc4c-4aaa-11e6-9290-af5de8608576.png)
+
 ## Installation
 
 ```bash
