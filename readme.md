@@ -1,4 +1,4 @@
-# ༛ [`papyrus`](https://www.youtube.com/watch?v=FrEdbKwivCI)
+# ⊶ [`papyrus`](https://www.youtube.com/watch?v=FrEdbKwivCI)
 
 __Work in progress__
 
