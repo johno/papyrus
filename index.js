@@ -1,21 +1,9 @@
 const electron = require('electron')
+const css = require('./css')
 const stripCss = require('./strip-css')
 const windows = []
 
-const style = `
-  html, body {
-    margin-top: 20px;
-    font-size: 18px !important;
-    color: tomato !important;
-    background-color: rebeccapurple;
-  }
-
-  svg { width: 1rem; }
-
-  h1 {
-    font-size: 8rem !important;
-  }
-`
+const style = css()
 
 electron.app.on('ready', () => {
   const screen = electron.screen
@@ -28,7 +16,7 @@ electron.app.on('ready', () => {
     titleBarStyle: 'hidden-inset'
   })
 
-  win.loadURL('http://mrmrs.cc')
+  win.loadURL('http://blog.algorithmia.com/2016/07/cloud-hosted-deep-learning-models/')
 
 
   win.webContents.executeJavaScript(stripCss(style))

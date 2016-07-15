@@ -14,7 +14,9 @@
   "repository": "johnotander/papyrus",
   "keywords": [],
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "diatonic": "^1.0.0"
+  },
   "devDependencies": {
     "electron-packager": "^7.3.0",
     "electron-prebuilt": "^1.2.7"

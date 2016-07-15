@@ -32,6 +32,8 @@ const diatonic = require('diatonic')
 
 - [Tabby](https://github.com/maxogden/tabby)
 - [Electron](https://github.com/electron/electron)
+- [Fluidity](https://github.com/mrmrs/fluidity)
+- [Diatonic](https://github.com/johnotander/diatonic)
 
 ## License
 
