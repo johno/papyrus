@@ -2,16 +2,24 @@ const diatonic = require('diatonic')
 
 module.exports = () => `
   html, body {
-    margin-top: 20px;
+    padding-top: 20px;
     margin-right: auto;
     margin-left: auto;
-    width: 32rem;
     line-height: 1.6;
     font-size: 20px !important;
     font-family: sans-serif;
     color: #444;
     background-color: #fafafa;
   }
+
+  html {
+    border-top: 6px solid #41D69F;
+  }
+
+  body {
+    width: 32rem;
+  }
+
 
   a, a:visited {
     text-decoration: none;
