@@ -17,7 +17,8 @@
   "dependencies": {
     "diatonic": "^1.0.0",
     "is-present": "^1.0.0",
-    "tachyons": "^4.0.4"
+    "tachyons": "^4.0.4",
+    "yo-yo": "^1.2.2"
   },
   "devDependencies": {
     "electron-packager": "^7.3.0",
