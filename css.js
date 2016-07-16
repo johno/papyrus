@@ -2,7 +2,7 @@ const diatonic = require('diatonic')
 
 module.exports = () => `
   html, body {
-    padding-top: 20px;
+    padding: 20px 10px 0 10px;
     margin-right: auto;
     margin-left: auto;
     line-height: 1.6;
@@ -17,7 +17,7 @@ module.exports = () => `
   }
 
   body {
-    width: 32rem;
+    max-width: 32rem;
   }
 
 
