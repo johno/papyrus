@@ -4,13 +4,8 @@ const path = require('path')
 const electron = require('electron')
 const isPresent = require('is-present')
 
-const css = require('./css')
-const stripCss = require('./strip-css')
-
 const Menu = electron.Menu
 const windows = []
-
-const style = css()
 
 electron.app.on('ready', () => {
   const screen = electron.screen
@@ -50,8 +45,6 @@ electron.app.on('ready', () => {
 
   const defUrl = path.join('file://', __dirname, 'index.html')
   win.loadURL(defUrl)
-
-  win.webContents.executeJavaScript(stripCss(style))
   
   win.on('closed', () => {
     const i = windows.indexOf(win)

@@ -2,6 +2,7 @@ const diatonic = require('diatonic')
 
 module.exports = () => `
   html, body {
+    height: 100%;
     padding: 20px 10px 0 10px;
     margin-right: auto;
     margin-left: auto;
@@ -18,6 +19,10 @@ module.exports = () => `
 
   body {
     max-width: 32rem;
+  }
+
+  webview {
+    height: 100%;
   }
 
 
