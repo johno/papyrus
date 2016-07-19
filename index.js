@@ -28,6 +28,12 @@ electron.app.on('ready', () => {
           if (focusedWindow) focusedWindow.webContents.send('appmenu', 'file:new-tab')
         }
       }, {
+        label: 'Vimmy',
+        accelerator: 'Esc',
+        click: (item, focusedWindow) => {
+          if (focusedWindow) focusedWindow.webContents.send('appmenu', 'file:new-tab')
+        }
+      }, {
         label: 'Close Tab',
         accelerator: 'CmdOrCtrl+W',
         click: (item, focusedWindow) => {

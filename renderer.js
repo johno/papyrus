@@ -43,7 +43,7 @@ const setTab = (url, activeTab) => {
       prev && prev.parentNode.removeChild(prev)
     }
 
-    activeTabe && activeTab.parentNode.removeChild(activeTab)
+    activeTab && activeTab.parentNode.removeChild(activeTab)
   })
 
   document.body.appendChild(newTab)
