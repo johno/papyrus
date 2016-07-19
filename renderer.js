@@ -1,5 +1,7 @@
 const electron = require('electron')
 const yo = require('yo-yo')
+
+const isBlank = require('is-blank')
 const normalizeUrl = require('normalize-url')
 
 const css = require('./css')
@@ -20,9 +22,21 @@ module.exports = () => {
           const url = normalizeUrl(tab.value.replace(/:go /, ''))
           tabs.push(url)
           setTab(url, tab)
+        } else if (/^\:ls/.test(tab.value)) {
+          showLs()
+        } else if (/^\:gh/.test(tab.value)) {
+          let url = tab.value.replace(/^\:gh/, '')
+          url = isBlank(url) ? 'github.com' : `github.com/${url.trim()}`
+          url = normalizeUrl(url)
+          tabs.push(url)
+          setTab(url, tab)
+        } else if (/^\:npm/.test(tab.value)) {
+          let url = tab.value.replace(/^\:npm/, '')
+          url = isBlank(url) ? 'npmjs.com' : `npmjs.com/${url.trim()}`
+          url = normalizeUrl(url)
+          tabs.push(url)
+          setTab(url, tab)
         }
-      } else if (/^\:ls/.test(tab.value)) {
-        showLs()
       }
     })
   })
