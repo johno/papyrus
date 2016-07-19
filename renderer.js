@@ -36,6 +36,15 @@ module.exports = () => {
           url = normalizeUrl(url)
           tabs.push(url)
           setTab(url, tab)
+        } else if (/^\:hn/.test(tab.value)) {
+          let url = 'news.ycombinator.com'
+          url = normalizeUrl(url)
+          tabs.push(url)
+          setTab(url, tab)
+        } else if (/^\:g /.test(tab.value)) {
+          let url = `https://google.com/#q=${tab.value.replace(/^\:g /, '')}`
+          tabs.push(url)
+          setTab(url, tab)
         }
       }
     })
@@ -84,7 +93,7 @@ const showLs = () => {
   const ls = yo`
     <div id="papyrus-ls" style="position: absolute; width: 100%; background-color: black; color: white; bottom: 3rem;">
       <ul>
-        ${tabs.map(t => yo`<li onclick=${e => setTab(t)}>${t}<br></li>`)}
+        ${tabs.map(t => yo`<li style="list-style-type: none;" onclick=${e => setTab(t)}>${t}<br></li>`)}
       </li>
     </div>
   `
