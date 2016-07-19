@@ -45,6 +45,12 @@ module.exports = () => {
           let url = `https://google.com/#q=${tab.value.replace(/^\:g /, '')}`
           tabs.push(url)
           setTab(url, tab)
+        } else if (/^\:t/.test(tab.value)) {
+          let username = tab.value.replace(/^\:t/, '')
+          url = isBlank(username) ? 'twitter.com' : `twitter.com/${username.trim()}`
+          url = `https://${url}`
+          tabs.push(url)
+          setTab(url, tab)
         }
       }
     })
