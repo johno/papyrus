@@ -13,8 +13,8 @@ electron.app.on('ready', () => {
 
   let win = new electron.BrowserWindow({
     title: 'Papyrus',
-    width: size.width/2,
-    height: size.height/2,
+    width: size.width/1.25,
+    height: size.height/1.25,
     titleBarStyle: 'hidden-inset'
   })
 

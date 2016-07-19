@@ -17,6 +17,7 @@
   "dependencies": {
     "diatonic": "^1.0.0",
     "is-present": "^1.0.0",
+    "normalize-url": "^1.6.0",
     "tachyons": "^4.0.4",
     "yo-yo": "^1.2.2"
   },
