@@ -11,9 +11,10 @@ const style = css()
 
 module.exports = () => {
   window.tabs = []
+  window.isShowingCmd = false
 
   electron.ipcRenderer.on('appmenu', (ev, type) => {
-    let tab = showCmd()
+    let tab = toggleCmd()
 
     tab.addEventListener('keyup', ev => {
       if (ev.keyCode === 13) {
@@ -78,18 +79,25 @@ const setTab = (url, activeTab) => {
   document.body.appendChild(newTab)
 }
 
-const showCmd = () => {
-  let tab = yo`
-    <input id="cmd"
-      style="position: fixed; bottom: 0; left: 0; right: 0; width: 100%; background-color: black; color: white; padding: 1rem;"
-      placeholder=":go johno.in"
-    />`
+const toggleCmd = () => {
+  if (window.isShowingCmd) {
+    window.isShowingCmd = false
+    const cmd = document.getElementById('cmd')
+    cmd.parentNode.removeChild(cmd)
+  } else {
+    window.isShowingCmd = true
+    let tab = yo`
+      <input id="cmd"
+        style="position: fixed; bottom: 0; left: 0; right: 0; width: 100%; background-color: black; color: white; padding: 1rem;"
+        placeholder=":go johno.in"
+      />`
 
-  document.body.appendChild(tab)
-  tab = document.getElementById('cmd')
-  tab.focus()
+    document.body.appendChild(tab)
+    tab = document.getElementById('cmd')
+    tab.focus()
 
-  return tab
+    return tab
+  }
 }
 
 const showLs = () => {
