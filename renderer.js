@@ -52,6 +52,10 @@ module.exports = () => {
           url = `https://${url}`
           tabs.push(url)
           setTab(url, tab)
+        } else if (/^\:sr/.test(tab.value)) {
+          const prev = document.querySelectorAll('.papyrus-tab')[0]
+          prev && prev.executeJavaScript(stripCss(style))
+          toggleCmd()
         }
       }
     })
