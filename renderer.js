@@ -23,22 +23,42 @@ module.exports = () => {
 
     tab.addEventListener('keyup', ev => {
       if (ev.keyCode === 13) {
-        const url = tab.value.replace(/:go /, '')
-        const newTab = yo`<webview class="papyrus-tab" src="${normalizeUrl(url)}" style="height: 100%"></webview>`
-        newTab.addEventListener('dom-ready', () => {
-          let prev = document.querySelectorAll('.papyrus-tab')
-          const papyrusInit = document.getElementById('papyrus-init')
-          papyrusInit && papyrusInit.parentNode.removeChild(papyrusInit)
+        console.log(tab.value)
+        if (/^\:go/.test(tab.value)) {
+          const url = normalizeUrl(tab.value.replace(/:go /, ''))
+          tabs.push(url)
 
-          if (prev.length > 1) {
-            prev = prev[0]
-            prev && prev.parentNode.removeChild(prev)
-          }
+          const newTab = yo`<webview class="papyrus-tab" src="${url}" style="height: 100%"></webview>`
+          newTab.addEventListener('dom-ready', () => {
+            let prev = document.querySelectorAll('.papyrus-tab')
+            const papyrusInit = document.getElementById('papyrus-init')
+            papyrusInit && papyrusInit.parentNode.removeChild(papyrusInit)
+            const papyrusLs = document.getElementById('papyrus-ls')
+            papyrusLs && papyrusLs.parentNode.removeChild(papyrusLs)
 
-          tab.parentNode.removeChild(tab)
-        })
+            if (prev.length > 1) {
+              prev = prev[0]
+              prev && prev.parentNode.removeChild(prev)
+            }
 
-        document.body.appendChild(newTab)
+            tab.parentNode.removeChild(tab)
+          })
+
+          document.body.appendChild(newTab)
+        }
+      } else if (/^\:ls/.test(tab.value)) {
+        const papyrusLs = document.getElementById('papyrus-ls')
+        papyrusLs && papyrusLs.parentNode.removeChild(papyrusLs)
+
+        const ls = yo`
+          <div id="papyrus-ls" style="position: absolute; width: 100%; background-color: black; color: white; bottom: 3rem;">
+            <ul>
+              ${tabs.map(t => yo`<li>${t}<br></li>`)}
+            </li>
+          </div>
+        `
+
+        document.body.appendChild(ls)
       }
     })
   })
